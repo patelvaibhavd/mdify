@@ -1,5 +1,5 @@
 <header class="header glass sticky-header">
-    <div class="logo">
+    <div class="logo" routerLink="/" style="cursor: pointer;">
         <div class="logo-icon">
             <lucide-icon [name]="FileText"></lucide-icon>
         </div>
@@ -7,7 +7,7 @@
     </div>
 
     <div class="actions">
-        <button class="btn-icon" (click)="toggleHelp.emit()" title="Toggle Markdown Guide">
+        <button class="btn-icon" routerLink="/guide" routerLinkActive="active" title="Markdown Guide">
             <lucide-icon [name]="HelpCircle"></lucide-icon>
         </button>
 

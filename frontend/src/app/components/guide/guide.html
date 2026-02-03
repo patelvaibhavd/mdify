@@ -1,0 +1,36 @@
+<div class="guide-page glass">
+    <div class="guide-header">
+        <div class="title-section">
+            <lucide-icon [name]="BookOpen" class="guide-icon"></lucide-icon>
+            <div>
+                <h1>Markdown Mastering Guide</h1>
+                <p>Learn how to format your text like a pro</p>
+            </div>
+        </div>
+        <button class="btn-primary" routerLink="/">
+            <span>Back to Converter</span>
+        </button>
+    </div>
+
+    <div class="guide-grid">
+        <div class="rule-card glass-border" *ngFor="let rule of rules">
+            <div class="rule-header">
+                <h3>{{ rule.name }}</h3>
+            </div>
+            <div class="rule-body">
+                <div class="syntax-section">
+                    <label>Syntax</label>
+                    <code class="syntax-code">{{ rule.syntax }}</code>
+                </div>
+                <div class="preview-section">
+                    <label>Result</label>
+                    <div class="preview-box" [innerHTML]="rule.example"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="guide-footer">
+        <p>Pro Tip: Use the <strong>Groq</strong> engine for the fastest and most accurate conversions.</p>
+    </div>
+</div>

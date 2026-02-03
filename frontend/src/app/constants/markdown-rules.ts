@@ -1,62 +1,47 @@
 export const MARKDOWN_RULES = [
     {
-        name: 'Heading 1',
-        syntax: '# Heading',
-        example: '<h1>Heading</h1>'
+        name: 'Headers',
+        syntax: '# H1\n## H2\n### H3',
+        example: '<h1>Heading 1</h1><h2>Heading 2</h2><h3>Heading 3</h3>'
     },
     {
-        name: 'Heading 2',
-        syntax: '## Heading',
-        example: '<h2>Heading</h2>'
+        name: 'Emphasis',
+        syntax: '**Bold**\n*Italic*\n~~Strikethrough~~',
+        example: '<strong>Bold</strong><br><em>Italic</em><br><del>Strikethrough</del>'
     },
     {
-        name: 'Bold',
-        syntax: '**Bold Text**',
-        example: '<strong>Bold Text</strong>'
+        name: 'Lists',
+        syntax: '- Unordered Item\n1. Ordered Item',
+        example: '<ul><li>Unordered Item</li></ul><ol><li>Ordered Item</li></ol>'
     },
     {
-        name: 'Italic',
-        syntax: '*Italic Text*',
-        example: '<em>Italic Text</em>'
+        name: 'Links & Images',
+        syntax: '[Title](url)\n![Alt](url)',
+        example: '<a href="#">Link Title</a><br><div style="font-size: 0.8rem; color: #888;">(Image will appear here)</div>'
     },
     {
-        name: 'Unordered List',
-        syntax: '- Item 1\n- Item 2',
-        example: '<ul><li>Item 1</li><li>Item 2</li></ul>'
+        name: 'Code',
+        syntax: '`Inline Code`\n\n```\nBlock Code\n```',
+        example: '<code>Inline Code</code><br><pre style="background: #222; padding: 10px; border-radius: 5px;">Block Code</pre>'
     },
     {
-        name: 'Ordered List',
-        syntax: '1. First Item\n2. Second Item',
-        example: '<ol><li>First Item</li><li>Second Item</li></ol>'
+        name: 'Blockquotes',
+        syntax: '> Quoted text',
+        example: '<blockquote style="border-left: 4px solid #6366f1; padding-left: 10px; color: #94a3b8;">Quoted text</blockquote>'
     },
     {
-        name: 'Link',
-        syntax: '[Link Text](https://example.com)',
-        example: '<a href="#">Link Text</a>'
+        name: 'Tables',
+        syntax: '| Head | Head |\n|---|---|\n| Cell | Cell |',
+        example: '<table border="1" style="border-collapse: collapse; width: 100%;"><tr><th>Head</th><th>Head</th></tr><tr><td>Cell</td><td>Cell</td></tr></table>'
     },
     {
-        name: 'Image',
-        syntax: '![Alt Text](image-url)',
-        example: '<span>(Image Placeholder)</span>'
-    },
-    {
-        name: 'Code Block',
-        syntax: '```javascript\nconsole.log("Hello");\n```',
-        example: '<pre><code>console.log("Hello");</code></pre>'
-    },
-    {
-        name: 'Quote',
-        syntax: '> This is a quote',
-        example: '<blockquote>This is a quote</blockquote>'
+        name: 'Checkboxes',
+        syntax: '- [x] Done\n- [ ] Pending',
+        example: '<input type="checkbox" checked disabled> Done<br><input type="checkbox" disabled> Pending'
     },
     {
         name: 'Horizontal Rule',
         syntax: '---',
-        example: '<hr>'
-    },
-    {
-        name: 'Table',
-        syntax: '| Col 1 | Col 2 |\n|---|---|\n| Val 1 | Val 2 |',
-        example: '<table border="1"><tr><th>Col 1</th><th>Col 2</th></tr><tr><td>Val 1</td><td>Val 2</td></tr></table>'
-    },
+        example: '<hr style="border: 0; border-top: 1px solid #334155;">'
+    }
 ];

@@ -1,0 +1,9 @@
+<div class="layout-grid">
+    <section class="converter-section">
+        <app-converter (converted)="onConverted($event)"></app-converter>
+    </section>
+
+    <section class="preview-section">
+        <app-preview [content]="markdownResult"></app-preview>
+    </section>
+</div>

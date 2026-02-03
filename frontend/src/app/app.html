@@ -2,21 +2,9 @@
 <div class="bg-blob blob-2"></div>
 
 <div class="app-container">
-  <app-header (toggleHelp)="toggleHelp()"></app-header>
+  <app-header></app-header>
 
   <main class="main-content">
-    <div class="layout-grid" [class.help-visible]="showHelp()">
-      <aside class="help-sidebar glass" *ngIf="showHelp()">
-        <app-help (close)="toggleHelp()"></app-help>
-      </aside>
-
-      <section class="converter-section">
-        <app-converter (converted)="onConverted($event)"></app-converter>
-      </section>
-
-      <section class="preview-section">
-        <app-preview [content]="markdownResult"></app-preview>
-      </section>
-    </div>
+    <router-outlet></router-outlet>
   </main>
 </div>

@@ -1,15 +1,16 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { ThemeService } from '../../../services/theme';
 import { SettingsComponent } from '../../settings/settings';
-import { LucideAngularModule } from 'lucide-angular';
-import { Moon, Sun, Github, FileText, Settings, HelpCircle } from 'lucide-angular';
+import { LucideAngularModule, Moon, Sun, Github, FileText, Settings, HelpCircle } from 'lucide-angular';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
     CommonModule,
+    RouterModule,
     LucideAngularModule,
     SettingsComponent
   ],
@@ -25,8 +26,6 @@ export class HeaderComponent {
   readonly HelpCircle = HelpCircle;
 
   showSettings = false;
-
-  @Output() toggleHelp = new EventEmitter<void>();
 
   constructor(public themeService: ThemeService) { }
 

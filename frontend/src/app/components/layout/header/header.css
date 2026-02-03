@@ -46,6 +46,12 @@
     align-items: center;
 }
 
+.btn-icon.active {
+    background: var(--primary-glow);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
 @media (max-width: 640px) {
     .header {
         padding: 0.75rem 1rem;

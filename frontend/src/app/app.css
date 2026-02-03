@@ -11,73 +11,13 @@
     overflow: hidden;
 }
 
-.layout-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    height: 100%;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.layout-grid.help-visible {
-    grid-template-columns: 320px 1fr 1fr;
-}
-
-.help-sidebar {
-    height: 100%;
-    overflow-y: auto;
-    border-radius: 20px;
-    animation: slideIn 0.3s ease-out;
-}
-
-.converter-section,
-.preview-section {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    /* Prevent grid blowout */
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(-20px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@media (max-width: 1200px) {
-    .layout-grid.help-visible {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto 1fr;
-    }
-
-    .help-sidebar {
-        grid-column: span 2;
-        max-height: 200px;
-    }
-}
-
 @media (max-width: 768px) {
-    .layout-grid {
-        grid-template-columns: 1fr;
-        overflow-y: auto;
-    }
-
-    .layout-grid.help-visible {
-        grid-template-columns: 1fr;
-    }
-
-    .help-sidebar {
-        grid-column: span 1;
-    }
-
     .app-container {
         height: auto;
+        overflow: visible;
+    }
+
+    .main-content {
         overflow: visible;
     }
 }
