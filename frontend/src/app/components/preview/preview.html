@@ -1,21 +1,34 @@
-<div class="preview-card glass animate-fade-in">
+<div class="preview-card glass">
     <div class="card-header">
-        <h3>Markdown Preview</h3>
-        <div class="actions" *ngIf="content">
-            <button class="icon-btn" (click)="onCopy()" title="Copy to Clipboard">
-                <lucide-icon [name]="copied ? Check : Copy"
-                    [style.color]="copied ? '#10b981' : 'inherit'"></lucide-icon>
+        <div class="header-main">
+            <lucide-icon [name]="Eye" class="header-icon"></lucide-icon>
+            <div class="header-text">
+                <h3>Visual Preview</h3>
+                <p>Real-time markdown rendering</p>
+            </div>
+        </div>
+        <div class="header-actions" *ngIf="content">
+            <button class="btn-icon" (click)="onCopy()" [title]="copyText">
+                <lucide-icon [name]="CheckCircle" *ngIf="showCopySuccess" class="success-icon"></lucide-icon>
+                <lucide-icon [name]="Copy" *ngIf="!showCopySuccess"></lucide-icon>
             </button>
-            <button class="icon-btn" (click)="onDownload()" title="Download .md">
+            <button class="btn-icon" (click)="onDownload()" title="Download .md">
                 <lucide-icon [name]="Download"></lucide-icon>
             </button>
         </div>
     </div>
 
-    <div class="preview-content">
-        <div class="empty-state" *ngIf="!content">
-            <p>Your markdown preview will appear here...</p>
+    <div class="preview-content scroll-area">
+        <div *ngIf="!content" class="empty-state">
+            <div class="empty-icon-wrapper">
+                <lucide-icon [name]="FileCode"></lucide-icon>
+            </div>
+            <h4>No Content Yet</h4>
+            <p>Convert some text to see the preview here</p>
         </div>
-        <markdown [data]="content" *ngIf="content"></markdown>
+
+        <div *ngIf="content" class="markdown-preview">
+            <markdown [data]="content"></markdown>
+        </div>
     </div>
 </div>

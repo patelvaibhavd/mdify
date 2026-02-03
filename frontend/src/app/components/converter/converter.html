@@ -1,30 +1,48 @@
-<div class="converter-card glass animate-fade-in">
+<div class="converter-card glass">
     <div class="card-header">
-        <h3>Input Text</h3>
-        <div class="actions">
+        <div class="header-main">
+            <lucide-icon [name]="Wand2" class="header-icon"></lucide-icon>
+            <div class="header-text">
+                <h3>Transform</h3>
+                <p>Convert raw text to beautiful markdown</p>
+            </div>
+        </div>
+        <div class="header-actions">
             <select [(ngModel)]="selectedProvider" class="provider-select">
                 <option value="mock">Mock Engine (Free)</option>
-                <option value="gemini">Gemini</option>
-                <option value="openai">OpenAI</option>
-                <option value="grok">Grok</option>
+                <option value="gemini">Gemini Flash</option>
+                <option value="openai">OpenAI GPT-4o</option>
+                <option value="groq">Groq Llama 3</option>
             </select>
-            <label class="icon-btn" title="Upload File">
-                <lucide-icon [name]="Upload"></lucide-icon>
-                <input type="file" (change)="onFileUpload($event)" accept=".txt" style="display: none;">
-            </label>
-            <button class="icon-btn delete" (click)="clear()" title="Clear">
-                <lucide-icon [name]="Trash2"></lucide-icon>
-            </button>
         </div>
     </div>
 
-    <textarea [(ngModel)]="inputText" placeholder="Paste your text here or upload a .txt file..."
-        class="text-area"></textarea>
+    <div class="input-area">
+        <textarea [(ngModel)]="inputText" placeholder="Paste your unformatted text here or upload a .txt file..."
+            [disabled]="isConverting()"></textarea>
+
+        <div class="input-overlay" *ngIf="!inputText && !isConverting()">
+            <lucide-icon [name]="Upload" class="upload-hint-icon"></lucide-icon>
+            <p>Drag & drop or paste text</p>
+        </div>
+    </div>
 
     <div class="card-footer">
-        <button class="convert-btn primary" [disabled]="isConverting() || !inputText" (click)="onConvert()">
-            <lucide-icon [name]="isConverting() ? Loader2 : Wand2" [class.spin]="isConverting()"></lucide-icon>
-            {{ isConverting() ? 'Converting...' : 'Convert to Markdown' }}
+        <div class="footer-left">
+            <input type="file" #fileInput (change)="onFileUpload($event)" hidden accept=".txt">
+            <button class="btn-secondary" (click)="fileInput.click()" [disabled]="isConverting()">
+                <lucide-icon [name]="Upload"></lucide-icon>
+                <span>Upload TXT</span>
+            </button>
+            <button class="btn-secondary" (click)="clear()" [disabled]="isConverting() || !inputText">
+                <lucide-icon [name]="Trash2"></lucide-icon>
+                <span>Clear</span>
+            </button>
+        </div>
+
+        <button class="btn-primary" (click)="onConvert()" [disabled]="isConverting() || !inputText.trim()">
+            <lucide-icon [name]="isConverting() ? Loader2 : Wand2" [class.animate-spin]="isConverting()"></lucide-icon>
+            <span>{{ isConverting() ? 'Converting...' : 'Convert to Markdown' }}</span>
         </button>
     </div>
 </div>

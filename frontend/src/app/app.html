@@ -1,19 +1,22 @@
-<app-header></app-header>
+<div class="bg-blob blob-1"></div>
+<div class="bg-blob blob-2"></div>
 
-<main class="container main-content">
-  <div class="grid-layout">
-    <div class="column">
-      <app-converter (converted)="onConverted($event)"></app-converter>
+<div class="app-container">
+  <app-header (toggleHelp)="toggleHelp()"></app-header>
+
+  <main class="main-content">
+    <div class="layout-grid" [class.help-visible]="showHelp()">
+      <aside class="help-sidebar glass" *ngIf="showHelp()">
+        <app-help (close)="toggleHelp()"></app-help>
+      </aside>
+
+      <section class="converter-section">
+        <app-converter (converted)="onConverted($event)"></app-converter>
+      </section>
+
+      <section class="preview-section">
+        <app-preview [content]="markdownResult"></app-preview>
+      </section>
     </div>
-    <div class="column">
-      <app-preview [content]="markdownResult"></app-preview>
-    </div>
-  </div>
-</main>
-
-<app-help></app-help>
-
-<div class="bg-decoration">
-  <div class="circle circle-1"></div>
-  <div class="circle circle-2"></div>
+  </main>
 </div>

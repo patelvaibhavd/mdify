@@ -1,17 +1,16 @@
-header {
-    position: sticky;
-    top: 1rem;
-    z-index: 100;
-    margin: 1rem;
-    padding: 0.75rem 1.5rem;
-}
-
-.header-container {
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1100px;
-    margin: 0 auto;
+    padding: 1rem 2rem;
+    margin: 1.5rem;
+    border-radius: 20px;
+    z-index: 100;
+}
+
+.sticky-header {
+    position: sticky;
+    top: 1.5rem;
 }
 
 .logo {
@@ -21,52 +20,39 @@ header {
 }
 
 .logo-icon {
-    color: var(--primary);
-    width: 24px;
-    height: 24px;
-}
-
-h1 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    background: linear-gradient(to right, var(--primary), var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-nav {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-}
-
-.settings-wrapper {
-    position: relative;
-}
-
-.settings-popover {
-    position: absolute;
-    top: calc(100% + 10px);
-    right: 0;
-    z-index: 1000;
-    box-shadow: var(--shadow);
-    animation: fadeIn 0.3s ease-out;
-}
-
-.nav-btn {
-    background: transparent;
-    color: var(--text-color);
-    padding: 0.5rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
-    transition: all 0.2s;
-    text-decoration: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--primary-glow);
 }
 
-.nav-btn:hover {
-    background: var(--border-color);
-    color: var(--primary);
+.logo h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+@media (max-width: 640px) {
+    .header {
+        padding: 0.75rem 1rem;
+        margin: 1rem;
+    }
+
+    .logo h1 {
+        display: none;
+    }
 }

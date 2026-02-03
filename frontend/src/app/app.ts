@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/layout/header/header';
 import { ConverterComponent } from './components/converter/converter';
@@ -20,8 +20,13 @@ import { HelpComponent } from './components/help/help';
 })
 export class App {
   markdownResult = '';
+  showHelp = signal(true); // Default to true as per user request to be visible
 
   onConverted(event: string) {
     this.markdownResult = event;
+  }
+
+  toggleHelp() {
+    this.showHelp.set(!this.showHelp());
   }
 }

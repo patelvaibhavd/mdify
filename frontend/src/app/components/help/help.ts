@@ -1,7 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MARKDOWN_RULES } from '../../constants/markdown-rules';
-import { LucideAngularModule, Info, X } from 'lucide-angular';
+import { LucideAngularModule, Info, X, BookOpen } from 'lucide-angular';
+
+interface MarkdownRule {
+  name: string;
+  syntax: string;
+  example: string;
+}
 
 @Component({
   selector: 'app-help',
@@ -13,11 +19,9 @@ import { LucideAngularModule, Info, X } from 'lucide-angular';
 export class HelpComponent {
   readonly Info = Info;
   readonly X = X;
+  readonly BookOpen = BookOpen;
 
-  isOpen = false;
-  rules = MARKDOWN_RULES;
+  rules: MarkdownRule[] = MARKDOWN_RULES;
 
-  toggle() {
-    this.isOpen = !this.isOpen;
-  }
+  @Output() close = new EventEmitter<void>();
 }

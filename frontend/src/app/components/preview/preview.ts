@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MarkdownModule, MarkdownService as NgxMarkdownService } from 'ngx-markdown';
+import { MarkdownModule } from 'ngx-markdown';
 import { MarkdownService } from '../../services/markdown';
-import { LucideAngularModule, Download, Copy, Check } from 'lucide-angular';
+import { LucideAngularModule, Download, Copy, CheckCircle, Eye, FileCode } from 'lucide-angular';
 
 @Component({
   selector: 'app-preview',
@@ -12,23 +12,32 @@ import { LucideAngularModule, Download, Copy, Check } from 'lucide-angular';
   styleUrl: './preview.css'
 })
 export class PreviewComponent {
-  readonly Download = Download;
-  readonly Copy = Copy;
-  readonly Check = Check;
+  public readonly Download = Download;
+  public readonly Copy = Copy;
+  public readonly CheckCircle = CheckCircle;
+  public readonly Eye = Eye;
+  public readonly FileCode = FileCode;
 
-  @Input() content = '';
+  @Input() public content = '';
 
-  copied = false;
+  public showCopySuccess = false;
+  public copyText = 'Copy to clipboard';
 
   constructor(private markdownService: MarkdownService) { }
 
-  onDownload() {
+  public onDownload() {
+    if (!this.content) return;
     this.markdownService.downloadMarkdown(this.content);
   }
 
-  onCopy() {
+  public onCopy() {
+    if (!this.content) return;
     navigator.clipboard.writeText(this.content);
-    this.copied = true;
-    setTimeout(() => this.copied = false, 2000);
+    this.showCopySuccess = true;
+    this.copyText = 'Copied!';
+    setTimeout(() => {
+      this.showCopySuccess = false;
+      this.copyText = 'Copy to clipboard';
+    }, 2000);
   }
 }

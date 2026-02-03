@@ -1,45 +1,73 @@
-# Mdify - AI Powered Markdown Converter
+# ✍️ Mdify - AI-Powered Markdown Converter
 
-Mdify is a premium web application that converts plain text into professionally formatted Markdown using advanced AI models.
+Mdify is a high-performance web application designed to transform unformatted text into professionally structured Markdown documents using state-of-the-art AI models.
 
-## Features
-- **AI Conversion**: Choose between Gemini, OpenAI, and Grok.
-- **Instant Preview**: Real-time rendering of converted markdown.
-- **File Upload**: Upload `.txt` files for bulk conversion.
-- **Download**: Export your markdown as a `.md` file.
-- **Help Guide**: Interactive markdown syntax rules.
-- **Theming**: Sleek Dark and Light modes.
+![Markdown Preview](https://img.shields.io/badge/Powered%20by-Groq%20%7C%20Gemini%20%7C%20OpenAI-blueviolet)
 
-## Tech Stack
-- **Frontend**: Angular 21, Lucide Icons, ngx-markdown.
-- **Backend**: Node.js, Express, OpenAI SDK, Google Generative AI SDK, Axios.
+## ✨ Features
 
-## Getting Started
+- 🚀 **Lightning Fast**: Powered by Groq's high-speed inference.
+- 🎨 **Glassmorphism Design**: Beautiful, modern UI with dark and light mode support.
+- 👁️ **Real-time Preview**: See your formatted document as you convert.
+- 📚 **Interactive Guide**: Learn Markdown rules with a built-in interactive guide.
+- 💾 **Export Options**: Download as `.md` file or copy to clipboard instantly.
+- 📁 **File Upload**: Upload `.txt` files directly for conversion.
 
-### 1. Setup Backend
-1. Go to `backend` folder.
-2. Create/Update `.env` file with your API keys:
-   ```env
-   GROK_API_KEY=your_key
-   GEMINI_API_KEY=your_key
-   OPENAI_API_KEY=your_key
-   DEFAULT_AI_PROVIDER=gemini
+## 🛠️ Technology Stack
+
+- **Frontend**: Angular 18+, Signals for state management, Glassmorphism CSS.
+- **Backend**: Node.js, Express.
+- **AI Models**: Groq (Llama 3), Google Gemini, OpenAI (GPT-4o).
+
+## 🚀 Getting Started
+
+### 1. Prerequisites
+- Node.js (v18 or higher)
+- npm or yarn
+
+### 2. Backend Setup
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
    ```
-3. Run `npm install` (if not already done).
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Configure your environment:
+   - Copy `.env.sample` to `.env`
+   - Add your API keys (Groq is recommended for free/fast usage)
 4. Start the server:
    ```bash
    node index.js
    ```
 
-### 2. Setup Frontend
-1. Go to `frontend` folder.
-2. Run `npm install`.
-3. Start the dev server:
+### 3. Frontend Setup
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
    ```bash
    npm start
    ```
-4. Open `http://localhost:4200` in your browser.
+4. Open your browser at `http://localhost:4200`.
 
-## Project Structure
-- `backend/`: Node.js Express server with AI integrations.
-- `frontend/`: Angular application with components for converter, preview, settings, and help.
+## ⚙️ Environment Variables
+
+Located in `backend/.env`:
+
+| Variable | Description | Source |
+|----------|-------------|--------|
+| `GROQ_API_KEY` | Key for Groq Cloud | [console.groq.com](https://console.groq.com/keys) |
+| `GEMINI_API_KEY` | Key for Google Gemini | [aistudio.google.com](https://aistudio.google.com/app/apikey) |
+| `OPENAI_API_KEY` | Key for OpenAI | [platform.openai.com](https://platform.openai.com/api-keys) |
+| `DEFAULT_AI_PROVIDER` | 'groq', 'gemini', 'openai', or 'mock' | - |
+
+## 📜 License
+
+MIT

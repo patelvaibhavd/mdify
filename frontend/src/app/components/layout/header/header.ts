@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from '../../../services/theme';
 import { SettingsComponent } from '../../settings/settings';
-import { LucideAngularModule, Moon, Sun, Github, FileText, Settings } from 'lucide-angular';
+import { LucideAngularModule } from 'lucide-angular';
+import { Moon, Sun, Github, FileText, Settings, HelpCircle } from 'lucide-angular';
 
 @Component({
   selector: 'app-header',
@@ -16,13 +17,16 @@ import { LucideAngularModule, Moon, Sun, Github, FileText, Settings } from 'luci
   styleUrl: './header.css'
 })
 export class HeaderComponent {
-  readonly Moon = 'moon';
-  readonly Sun = 'sun';
-  readonly Github = 'github';
-  readonly FileText = 'file-text';
-  readonly Settings = 'settings';
+  readonly Moon = Moon;
+  readonly Sun = Sun;
+  readonly Github = Github;
+  readonly FileText = FileText;
+  readonly Settings = Settings;
+  readonly HelpCircle = HelpCircle;
 
   showSettings = false;
+
+  @Output() toggleHelp = new EventEmitter<void>();
 
   constructor(public themeService: ThemeService) { }
 

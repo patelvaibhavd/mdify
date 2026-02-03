@@ -20,7 +20,7 @@ export class ConverterComponent {
 
   inputText = '';
   isConverting = signal(false);
-  selectedProvider = 'grok';
+  selectedProvider = 'groq';
 
   @Output() converted = new EventEmitter<string>();
 

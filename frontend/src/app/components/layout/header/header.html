@@ -1,23 +1,29 @@
-<header class="glass">
-    <div class="header-container">
-        <div class="logo">
-            <lucide-icon [name]="FileText" class="logo-icon"></lucide-icon>
-            <h1>Mdify</h1>
+<header class="header glass sticky-header">
+    <div class="logo">
+        <div class="logo-icon">
+            <lucide-icon [name]="FileText"></lucide-icon>
         </div>
-
-        <nav>
-            <div class="settings-wrapper">
-                <button class="nav-btn" (click)="toggleSettings()">
-                    <lucide-icon [name]="Settings"></lucide-icon>
-                </button>
-                <div class="settings-popover glass" *ngIf="showSettings">
-                    <app-settings></app-settings>
-                </div>
-            </div>
-
-            <a href="https://github.com" target="_blank" class="nav-btn">
-                <lucide-icon [name]="Github"></lucide-icon>
-            </a>
-        </nav>
+        <h1>Mdify</h1>
     </div>
+
+    <div class="actions">
+        <button class="btn-icon" (click)="toggleHelp.emit()" title="Toggle Markdown Guide">
+            <lucide-icon [name]="HelpCircle"></lucide-icon>
+        </button>
+
+        <a href="https://github.com" target="_blank" class="btn-icon" title="GitHub">
+            <lucide-icon [name]="Github"></lucide-icon>
+        </a>
+
+        <button class="btn-icon" (click)="themeService.toggleTheme()"
+            [title]="themeService.theme() === 'light' ? 'Dark Mode' : 'Light Mode'">
+            <lucide-icon [name]="themeService.theme() === 'light' ? Moon : Sun"></lucide-icon>
+        </button>
+
+        <button class="btn-icon" (click)="toggleSettings()" title="Settings">
+            <lucide-icon [name]="Settings"></lucide-icon>
+        </button>
+    </div>
+
+    <app-settings *ngIf="showSettings" (close)="toggleSettings()"></app-settings>
 </header>
