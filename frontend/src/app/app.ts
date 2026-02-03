@@ -12,6 +12,6 @@ import { HeaderComponent } from './components/layout/header/header';
     HeaderComponent
   ],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.scss'
 })
 export class App { }

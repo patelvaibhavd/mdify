@@ -9,7 +9,7 @@ import { MARKDOWN_RULES } from '../../constants/markdown-rules';
   standalone: true,
   imports: [CommonModule, RouterModule, LucideAngularModule],
   templateUrl: './guide.html',
-  styleUrl: './guide.css'
+  styleUrl: './guide.scss'
 })
 export class GuideComponent {
   readonly BookOpen = BookOpen;

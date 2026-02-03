@@ -24,10 +24,10 @@ export class ThemeService {
   }
 
   private applyTheme(theme: 'light' | 'dark') {
-    if (theme === 'dark') {
-      document.body.classList.add('dark-theme');
+    if (theme === 'light') {
+      document.body.classList.add('light-theme');
     } else {
-      document.body.classList.remove('dark-theme');
+      document.body.classList.remove('light-theme');
     }
   }
 }

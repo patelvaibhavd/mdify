@@ -9,7 +9,7 @@ import { LucideAngularModule, Upload, Wand2, Download, Trash2, Loader2 } from 'l
   standalone: true,
   imports: [CommonModule, FormsModule, LucideAngularModule],
   templateUrl: './converter.html',
-  styleUrl: './converter.css'
+  styleUrl: './converter.scss'
 })
 export class ConverterComponent {
   readonly Upload = Upload;

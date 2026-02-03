@@ -8,7 +8,7 @@ import { PreviewComponent } from '../preview/preview';
   standalone: true,
   imports: [CommonModule, ConverterComponent, PreviewComponent],
   templateUrl: './home.html',
-  styleUrl: './home.css'
+  styleUrl: './home.scss'
 })
 export class HomeComponent {
   markdownResult = '';

@@ -9,7 +9,7 @@ import { LucideAngularModule, Download, Copy, CheckCircle, Eye, FileCode } from 
   standalone: true,
   imports: [CommonModule, MarkdownModule, LucideAngularModule],
   templateUrl: './preview.html',
-  styleUrl: './preview.css'
+  styleUrl: './preview.scss'
 })
 export class PreviewComponent {
   public readonly Download = Download;

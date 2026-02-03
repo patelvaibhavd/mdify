@@ -20,10 +20,5 @@
             <lucide-icon [name]="themeService.theme() === 'light' ? Moon : Sun"></lucide-icon>
         </button>
 
-        <button class="btn-icon" (click)="toggleSettings()" title="Settings">
-            <lucide-icon [name]="Settings"></lucide-icon>
-        </button>
     </div>
-
-    <app-settings *ngIf="showSettings" (close)="toggleSettings()"></app-settings>
 </header>
