@@ -1,0 +1,40 @@
+.settings-card {
+    padding: 1rem;
+    width: 200px;
+}
+
+h5 {
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #64748b;
+}
+
+.theme-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: transparent;
+    color: var(--text-color);
+    width: 100%;
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+button:hover {
+    background: var(--border-color);
+}
+
+button.active {
+    background: var(--primary);
+    color: white;
+}

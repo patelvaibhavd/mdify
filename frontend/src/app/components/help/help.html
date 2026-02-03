@@ -1,0 +1,20 @@
+<div class="help-wrapper">
+    <button class="help-trigger glass" (click)="toggle()">
+        <lucide-icon [name]="isOpen ? X : Info"></lucide-icon>
+        <span>{{ isOpen ? 'Close Help' : 'Markdown Help' }}</span>
+    </button>
+
+    <div class="help-panel glass" *ngIf="isOpen" [@panelAnimation]>
+        <div class="panel-header">
+            <h4>Markdown Guide</h4>
+        </div>
+        <div class="rules-list">
+            @for (rule of rules; track rule.name) {
+            <div class="rule-item">
+                <span class="rule-name">{{ rule.name }}</span>
+                <code class="rule-syntax">{{ rule.syntax }}</code>
+            </div>
+            }
+        </div>
+    </div>
+</div>

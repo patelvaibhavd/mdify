@@ -1,0 +1,21 @@
+<div class="preview-card glass animate-fade-in">
+    <div class="card-header">
+        <h3>Markdown Preview</h3>
+        <div class="actions" *ngIf="content">
+            <button class="icon-btn" (click)="onCopy()" title="Copy to Clipboard">
+                <lucide-icon [name]="copied ? Check : Copy"
+                    [style.color]="copied ? '#10b981' : 'inherit'"></lucide-icon>
+            </button>
+            <button class="icon-btn" (click)="onDownload()" title="Download .md">
+                <lucide-icon [name]="Download"></lucide-icon>
+            </button>
+        </div>
+    </div>
+
+    <div class="preview-content">
+        <div class="empty-state" *ngIf="!content">
+            <p>Your markdown preview will appear here...</p>
+        </div>
+        <markdown [data]="content" *ngIf="content"></markdown>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<app-header></app-header>
+
+<main class="container main-content">
+  <div class="grid-layout">
+    <div class="column">
+      <app-converter (converted)="onConverted($event)"></app-converter>
+    </div>
+    <div class="column">
+      <app-preview [content]="markdownResult"></app-preview>
+    </div>
+  </div>
+</main>
+
+<app-help></app-help>
+
+<div class="bg-decoration">
+  <div class="circle circle-1"></div>
+  <div class="circle circle-2"></div>
+</div>

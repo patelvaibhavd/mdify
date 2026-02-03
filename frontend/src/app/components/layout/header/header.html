@@ -1,0 +1,23 @@
+<header class="glass">
+    <div class="header-container">
+        <div class="logo">
+            <lucide-icon [name]="FileText" class="logo-icon"></lucide-icon>
+            <h1>Mdify</h1>
+        </div>
+
+        <nav>
+            <div class="settings-wrapper">
+                <button class="nav-btn" (click)="toggleSettings()">
+                    <lucide-icon [name]="Settings"></lucide-icon>
+                </button>
+                <div class="settings-popover glass" *ngIf="showSettings">
+                    <app-settings></app-settings>
+                </div>
+            </div>
+
+            <a href="https://github.com" target="_blank" class="nav-btn">
+                <lucide-icon [name]="Github"></lucide-icon>
+            </a>
+        </nav>
+    </div>
+</header>
