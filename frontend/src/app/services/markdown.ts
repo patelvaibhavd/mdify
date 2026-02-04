@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MarkdownService {
-  private apiUrl = 'http://localhost:3000/api';
+  private apiUrl = '/.netlify/functions';
 
   constructor(private http: HttpClient) { }
 
