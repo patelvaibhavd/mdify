@@ -369,11 +369,18 @@ h4 {
 
 /* Global Icon Alignment */
 lucide-icon {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   line-height: 0;
-  vertical-align: middle;
+}
+
+.btn-primary,
+.btn-icon,
+.btn-clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Utility Animations */
