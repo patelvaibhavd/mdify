@@ -1,23 +1,36 @@
 .app-container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    overflow: hidden;
+    width: 100%;
+    position: relative;
+
+    @media (min-width: 901px) {
+        height: 100vh;
+        overflow: hidden;
+    }
 }
 
 .main-content {
     flex: 1;
-    padding: 1.5rem;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    width: 100%;
+
+    @media (min-width: 901px) {
+        overflow-y: auto;
+    }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .app-container {
         height: auto;
-        overflow: visible;
+        min-height: 100vh;
     }
 
     .main-content {
+        height: auto;
+        flex: none;
         overflow: visible;
     }
 }

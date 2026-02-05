@@ -1,21 +1,121 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+    padding-bottom: 1rem;
+}
+
+.mode-tabs {
+    display: flex;
+    gap: 0.25rem;
+    padding: 0.35rem;
+    margin: 1rem auto;
+    width: fit-content;
+    border-radius: 14px;
+    background: var(--code-bg);
+    border: 1px solid var(--border-color);
+    flex-shrink: 0;
+    animation: slideUp 0.6s var(--transition-curve) both;
+
+    button {
+        background: transparent;
+        border: none;
+        color: var(--text-secondary);
+        padding: 0.5rem 1.25rem;
+        border-radius: 10px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: var(--transition);
+
+        lucide-icon {
+            width: 16px;
+            height: 16px;
+        }
+
+        &:hover:not(.active) {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        &.active {
+            color: white;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            box-shadow: 0 4px 12px var(--primary-glow);
+        }
+    }
+}
+
 .layout-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    height: 100%;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: 1.25rem;
+    flex: 1;
+    padding: 0 1.5rem 0.5rem;
+    min-height: 0;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    animation: fadeIn 0.8s var(--transition-curve) 0.1s both;
 }
 
 .converter-section,
 .preview-section {
     display: flex;
     flex-direction: column;
-    min-width: 0;
+    height: 100%;
+    min-height: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+    .layout-grid {
+        padding: 0 1rem 0.5rem;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 900px) {
+    :host {
+        height: auto;
+        overflow-y: auto;
+    }
+
+    .mode-tabs {
+        width: calc(100% - 2rem);
+        margin-bottom: 0.75rem;
+
+        button {
+            flex: 1;
+            justify-content: center;
+        }
+    }
+
     .layout-grid {
         grid-template-columns: 1fr;
-        overflow-y: auto;
+        height: auto;
+        padding: 0 1rem 1.5rem;
+        flex: none;
+    }
+
+    .converter-section,
+    .preview-section {
+        height: auto;
+        min-height: 450px;
+    }
+
+    ::ng-deep {
+
+        .converter-card,
+        .preview-card,
+        .editor-card {
+            height: auto !important;
+            min-height: 450px;
+        }
     }
 }

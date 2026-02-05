@@ -1,6 +1,18 @@
-<div class="layout-grid">
+<div class="mode-tabs glass">
+    <button [class.active]="activeMode() === 'ai'" (click)="setMode('ai')">
+        <lucide-icon [name]="Sparkles"></lucide-icon>
+        <span>AI Assistant</span>
+    </button>
+    <button [class.active]="activeMode() === 'live'" (click)="setMode('live')">
+        <lucide-icon [name]="PenLine"></lucide-icon>
+        <span>Live Editor</span>
+    </button>
+</div>
+
+<div class="layout-grid" [class.mode-live]="activeMode() === 'live'">
     <section class="converter-section">
-        <app-converter (converted)="onConverted($event)"></app-converter>
+        <app-converter *ngIf="activeMode() === 'ai'" (converted)="onConverted($event)"></app-converter>
+        <app-live-editor *ngIf="activeMode() === 'live'" (contentChange)="onConverted($event)"></app-live-editor>
     </section>
 
     <section class="preview-section">

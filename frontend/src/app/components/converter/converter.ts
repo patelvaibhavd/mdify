@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MarkdownService } from '../../services/markdown';
-import { LucideAngularModule, Upload, Wand2, Download, Trash2, Loader2 } from 'lucide-angular';
+import { LucideAngularModule, Wand2, Download, Trash2, Loader2 } from 'lucide-angular';
 
 @Component({
   selector: 'app-converter',
@@ -12,7 +12,6 @@ import { LucideAngularModule, Upload, Wand2, Download, Trash2, Loader2 } from 'l
   styleUrl: './converter.scss'
 })
 export class ConverterComponent {
-  readonly Upload = Upload;
   readonly Wand2 = Wand2;
   readonly Download = Download;
   readonly Trash2 = Trash2;
@@ -43,16 +42,6 @@ export class ConverterComponent {
     });
   }
 
-  onFileUpload(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e: any) => {
-        this.inputText = e.target.result;
-      };
-      reader.readAsText(file);
-    }
-  }
 
   clear() {
     this.inputText = '';
