@@ -32,10 +32,26 @@ You must configure the following environment variables in the Netlify Dashboard 
 | `DEFAULT_AI_PROVIDER` | Default provider to use (e.g., `gemini`, `groq`, `openai`) |
 
 ## 🛠 Local Development
-To run the frontend and functions locally using Netlify Dev:
-1. `npm install` (in the root)
-2. `netlify dev`
-This will start the Angular app and the serverless functions, proxying requests correctly.
+To run the frontend and functions locally:
+1.  **Requirement**: Install Netlify CLI: `npm install -g netlify-cli`
+2.  **Install dependencies**:
+    ```bash
+    npm install          # Root dependencies
+    cd frontend && npm install  # Frontend dependencies
+    ```
+3.  **Run locally**:
+    ```bash
+    netlify dev
+    ```
+    This will:
+    - Start the Angular app on `http://localhost:4200`
+    - Start the Netlify Functions on `http://localhost:8888`
+    - Automatically proxy `/.netlify/functions` requests to the local server.
+
+### Environment Files
+The frontend uses Angular environment files:
+- `src/environments/environment.ts`: Used for local development (points to local functions).
+- `src/environments/environment.prod.ts`: Used for production (points to `https://mdify.netlify.app/.netlify/functions`).
 
 ---
 *Note: The old `backend` folder is no longer used and can be safely deleted.*

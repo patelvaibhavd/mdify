@@ -1,13 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MarkdownModule } from 'ngx-markdown';
+import { MarkdownComponent } from 'ngx-markdown';
 import { MarkdownService } from '../../services/markdown';
 import { LucideAngularModule, Download, Copy, CheckCircle, Eye, FileCode } from 'lucide-angular';
 
 @Component({
   selector: 'app-preview',
   standalone: true,
-  imports: [CommonModule, MarkdownModule, LucideAngularModule],
+  imports: [CommonModule, MarkdownComponent, LucideAngularModule],
   templateUrl: './preview.html',
   styleUrl: './preview.scss'
 })

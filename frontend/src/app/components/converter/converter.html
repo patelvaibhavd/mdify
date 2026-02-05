@@ -10,39 +10,31 @@
         <div class="header-actions">
             <select [(ngModel)]="selectedProvider" class="provider-select">
                 <option value="mock">Mock Engine (Free)</option>
-                <option value="gemini">Gemini Flash</option>
-                <option value="openai">OpenAI GPT-4o</option>
+                <option value="gemini" disabled>Gemini Flash</option>
+                <option value="openai" disabled>OpenAI GPT-4o</option>
                 <option value="groq">Groq Llama 3</option>
             </select>
         </div>
     </div>
 
     <div class="input-area">
-        <textarea [(ngModel)]="inputText" placeholder="Paste your unformatted text here or upload a .txt file..."
+        <textarea [(ngModel)]="inputText" placeholder="Paste your unformatted text here..."
             [disabled]="isConverting()"></textarea>
 
         <div class="input-overlay" *ngIf="!inputText && !isConverting()">
-            <lucide-icon [name]="Upload" class="upload-hint-icon"></lucide-icon>
-            <p>Drag & drop or paste text</p>
+            <lucide-icon [name]="Wand2" class="upload-hint-icon"></lucide-icon>
+            <p>Paste your text to start</p>
         </div>
     </div>
 
     <div class="card-footer">
-        <div class="footer-left">
-            <input type="file" #fileInput (change)="onFileUpload($event)" hidden accept=".txt">
-            <button class="btn-secondary" (click)="fileInput.click()" [disabled]="isConverting()">
-                <lucide-icon [name]="Upload"></lucide-icon>
-                <span>Upload TXT</span>
-            </button>
-            <button class="btn-secondary" (click)="clear()" [disabled]="isConverting() || !inputText">
-                <lucide-icon [name]="Trash2"></lucide-icon>
-                <span>Clear</span>
-            </button>
-        </div>
+        <button class="btn-clear" (click)="clear()" [disabled]="isConverting() || !inputText" title="Clear All">
+            <lucide-icon [name]="Trash2"></lucide-icon>
+        </button>
 
         <button class="btn-primary" (click)="onConvert()" [disabled]="isConverting() || !inputText.trim()">
             <lucide-icon [name]="isConverting() ? Loader2 : Wand2" [class.animate-spin]="isConverting()"></lucide-icon>
-            <span>{{ isConverting() ? 'Converting...' : 'Convert to Markdown' }}</span>
+            <span>{{ isConverting() ? 'Converting...' : 'Convert' }}</span>
         </button>
     </div>
 </div>

@@ -1,0 +1,32 @@
+<div class="editor-card glass">
+    <div class="card-header">
+        <div class="header-main">
+            <lucide-icon [name]="PenLine" class="header-icon"></lucide-icon>
+            <div class="header-text">
+                <h3>Live Editor</h3>
+                <p>Write or paste Markdown directly</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="input-area">
+        <textarea [(ngModel)]="inputText" (ngModelChange)="onInputChange()"
+            placeholder="Start writing markdown here... # Example Header"></textarea>
+
+        <div class="input-overlay" *ngIf="!inputText">
+            <lucide-icon [name]="PenLine" class="upload-hint-icon"></lucide-icon>
+            <p>Type your markdown</p>
+        </div>
+    </div>
+
+    <div class="card-footer">
+        <button class="btn-clear" (click)="clear()" [disabled]="!inputText" title="Clear All">
+            <lucide-icon [name]="Trash2"></lucide-icon>
+        </button>
+
+        <div class="status-badge">
+            <span class="dot"></span>
+            Live Preview Active
+        </div>
+    </div>
+</div>
