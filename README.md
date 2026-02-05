@@ -70,4 +70,4 @@ Located in `backend/.env`:
 
 ## 📜 License
 
-MIT
+[MIT](LICENSE)
